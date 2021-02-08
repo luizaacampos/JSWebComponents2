@@ -5,8 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Web Components</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 2rem;
+        font-family: sans-serif;
+      }
+    </style>
+    <script src="modal.js"></script>
   </head>
   <body>
-   
+   <lc-modal>
+     <h1 slot="title">Please confirm</h1>
+     <p>with your confirmation you agree to pay the full amount!</p>
+   </lc-modal>
+   <p>Please confirm your choice.</p>
+   <button>Show details and confirm</button>
+
+   <script>
+     const confirmButton = document.querySelector('button');
+     const modal = document.querySelector('lc-modal');
+
+     modal.addEventListener('confirm', () => {
+       
+     })
+
+     modal.addEventListener('cancel', () => {
+
+     })
+
+     confirmButton.addEventListener('click', () => {
+        // modal.setAttribute('opened', '');
+        if (!modal.isOpen) {
+          modal.open();
+        }
+     });
+   </script>
   </body>
 </html>
